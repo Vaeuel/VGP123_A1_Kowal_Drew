@@ -136,7 +136,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -150,7 +150,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 12
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -199,37 +199,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player sprite sheet 2_0
+      name: Walk 2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 53
         y: 463
-        width: 46
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2d1cb0d92a8c90d80800000000000000
-      internalID: -8283869438826266158
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player sprite sheet 2_1
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 462
-        width: 46
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 44
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -243,15 +221,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_2
+      name: Walk 3
       rect:
         serializedVersion: 2
-        x: 106
-        y: 462
-        width: 44
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 107
+        y: 463
+        width: 42
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -265,15 +243,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_3
+      name: Walk 4
       rect:
         serializedVersion: 2
-        x: 157
-        y: 461
-        width: 46
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 158
+        y: 463
+        width: 43
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -287,15 +265,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_4
+      name: Walk 5
       rect:
         serializedVersion: 2
-        x: 207
-        y: 462
-        width: 48
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 209
+        y: 463
+        width: 45
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -309,15 +287,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_5
+      name: Walk 6
       rect:
         serializedVersion: 2
-        x: 257
-        y: 463
-        width: 51
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 258
+        y: 464
+        width: 49
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -331,15 +309,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_6
+      name: Walk 7
       rect:
         serializedVersion: 2
-        x: 306
-        y: 462
-        width: 54
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 307
+        y: 463
+        width: 52
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -353,15 +331,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_7
+      name: Walk 8
       rect:
         serializedVersion: 2
-        x: 362
-        y: 461
-        width: 49
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 363
+        y: 463
+        width: 47
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -375,15 +353,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_8
+      name: Walk 9
       rect:
         serializedVersion: 2
-        x: 416
-        y: 461
-        width: 46
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 417
+        y: 462
+        width: 44
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -397,15 +375,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_9
+      name: Walk 10
       rect:
         serializedVersion: 2
-        x: 470
-        y: 461
-        width: 42
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 471
+        y: 463
+        width: 41
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -419,15 +397,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_10
+      name: Death 1
       rect:
         serializedVersion: 2
         x: 0
-        y: 412
-        width: 49
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 413
+        width: 48
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -441,15 +419,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_11
+      name: Death 2
       rect:
         serializedVersion: 2
-        x: 47
-        y: 412
-        width: 146
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 49
+        y: 413
+        width: 62
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -463,15 +441,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_12
+      name: Death 4
       rect:
         serializedVersion: 2
-        x: 190
-        y: 412
-        width: 238
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 193
+        y: 413
+        width: 75
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -485,15 +463,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_13
+      name: Death 5
       rect:
         serializedVersion: 2
-        x: 426
-        y: 413
-        width: 82
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 269
+        y: 414
+        width: 79
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -507,15 +485,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_14
+      name: Death 7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 327
-        width: 76
-        height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 428
+        y: 414
+        width: 79
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -529,15 +507,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_15
+      name: Jump 2
       rect:
         serializedVersion: 2
-        x: 73
-        y: 327
-        width: 48
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 328
+        width: 36
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -551,15 +529,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_16
+      name: Land 2 & Jump 1
       rect:
         serializedVersion: 2
-        x: 124
-        y: 327
-        width: 53
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 75
+        y: 328
+        width: 45
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -573,15 +551,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_17
+      name: Land 3
       rect:
         serializedVersion: 2
-        x: 177
-        y: 327
+        x: 125
+        y: 328
         width: 51
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -595,15 +573,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_18
+      name: Land 4
       rect:
         serializedVersion: 2
-        x: 227
-        y: 329
-        width: 49
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 178
+        y: 328
+        width: 48
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -617,15 +595,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_19
+      name: Land 5
       rect:
         serializedVersion: 2
-        x: 325
-        y: 326
-        width: 46
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 228
+        y: 331
+        width: 47
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -639,15 +617,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_20
+      name: Idle 2
       rect:
         serializedVersion: 2
-        x: 370
-        y: 326
-        width: 46
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 326
+        y: 327
+        width: 44
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -661,15 +639,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_21
+      name: Idle 1
       rect:
         serializedVersion: 2
-        x: 455
-        y: 326
-        width: 35
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 371
+        y: 327
+        width: 44
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -683,15 +661,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_22
+      name: Jump 3
       rect:
         serializedVersion: 2
-        x: 2
-        y: 277
-        width: 92
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 456
+        y: 327
+        width: 33
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -705,15 +683,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_23
+      name: Ranged 1
       rect:
         serializedVersion: 2
-        x: 99
-        y: 277
-        width: 52
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3
+        y: 278
+        width: 90
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -727,15 +705,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_24
+      name: Ranged 2
       rect:
         serializedVersion: 2
-        x: 414
-        y: 219
-        width: 34
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 100
+        y: 278
+        width: 50
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -749,15 +727,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_25
+      name: Melee 9
       rect:
         serializedVersion: 2
-        x: 452
-        y: 219
+        x: 415
+        y: 220
         width: 32
         height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.3772316, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -771,15 +749,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_26
+      name: Melee 1
       rect:
         serializedVersion: 2
         x: 0
-        y: 218
-        width: 54
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 219
+        width: 53
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -793,15 +771,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_27
+      name: Melee 2
       rect:
         serializedVersion: 2
-        x: 55
-        y: 218
-        width: 46
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 57
+        y: 219
+        width: 43
+        height: 51
+      alignment: 9
+      pivot: {x: 0.5322456, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -815,15 +793,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_28
+      name: Melee 3
       rect:
         serializedVersion: 2
-        x: 103
-        y: 218
-        width: 66
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 104
+        y: 219
+        width: 64
+        height: 50
+      alignment: 9
+      pivot: {x: 0.17141414, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -837,15 +815,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_29
+      name: Melee 4
       rect:
         serializedVersion: 2
-        x: 168
-        y: 218
-        width: 43
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 169
+        y: 219
+        width: 41
+        height: 42
+      alignment: 9
+      pivot: {x: 0.42672655, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -859,15 +837,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_30
+      name: Melee 5
       rect:
         serializedVersion: 2
-        x: 213
-        y: 218
-        width: 43
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 214
+        y: 219
+        width: 41
+        height: 42
+      alignment: 9
+      pivot: {x: 0.432363, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -881,15 +859,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_31
+      name: Melee 6
       rect:
         serializedVersion: 2
-        x: 256
-        y: 218
-        width: 43
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 257
+        y: 219
+        width: 41
+        height: 42
+      alignment: 9
+      pivot: {x: 0.40981758, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -903,15 +881,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_32
+      name: Melee 7
       rect:
         serializedVersion: 2
-        x: 301
-        y: 218
-        width: 60
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 302
+        y: 219
+        width: 57
+        height: 46
+      alignment: 9
+      pivot: {x: 0.16, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -925,15 +903,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player sprite sheet 2_33
+      name: Melee 8
       rect:
         serializedVersion: 2
-        x: 360
-        y: 218
-        width: 54
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 361
+        y: 219
+        width: 52
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -946,11 +924,121 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Walk 1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 464
+        width: 44
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40b12505041d2754ebe98c1574b7d6ed
+      internalID: 823868373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Melee 10
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 220
+        width: 30
+        height: 56
+      alignment: 9
+      pivot: {x: 0.34, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 846efbb5bb9e5444dadf4326e3a453f9
+      internalID: 917099564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death 3
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 413
+        width: 80
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 242513d1e79efd94ebd48c794b9045d9
+      internalID: -1258845994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death 6
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 414
+        width: 78
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6117a35d1d5bfe4469114c62db0fd5ac
+      internalID: 1256292780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Land 1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 328
+        width: 36
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29d01bd917beba24982dc48299fb0b97
+      internalID: -1105650745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: cb88d2f2179b9bb4fa157c9c0178d2c6
     internalID: 0
     vertices: []
     indices: 
@@ -960,40 +1048,44 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Player sprite sheet 2_0: -8283869438826266158
-      Player sprite sheet 2_1: 9182891220480388673
-      Player sprite sheet 2_10: 3315676706361644364
-      Player sprite sheet 2_11: 4198526965624339288
-      Player sprite sheet 2_12: 8143022820493098487
-      Player sprite sheet 2_13: 8642020582561589231
-      Player sprite sheet 2_14: 7952100635976338073
-      Player sprite sheet 2_15: -8479791958730615374
-      Player sprite sheet 2_16: 8834448354560513777
-      Player sprite sheet 2_17: -57964182385870278
-      Player sprite sheet 2_18: -5987673422773130016
-      Player sprite sheet 2_19: 9190330641994463543
-      Player sprite sheet 2_2: 6671741380238926626
-      Player sprite sheet 2_20: -4906050470578595837
-      Player sprite sheet 2_21: 552772150493026744
-      Player sprite sheet 2_22: 1130767902848007243
-      Player sprite sheet 2_23: -4947791519428454616
-      Player sprite sheet 2_24: 2652738514886098734
-      Player sprite sheet 2_25: 4022981246528081816
-      Player sprite sheet 2_26: -4741081077262407948
-      Player sprite sheet 2_27: -8903974296740874334
-      Player sprite sheet 2_28: 533884865129846064
-      Player sprite sheet 2_29: -4774420083510798942
-      Player sprite sheet 2_3: 1809792408423453458
-      Player sprite sheet 2_30: 8587876467605778199
-      Player sprite sheet 2_31: 4003125448221608452
-      Player sprite sheet 2_32: 1756191075861045583
-      Player sprite sheet 2_33: -5002318504443000857
-      Player sprite sheet 2_4: -1799824712238791947
-      Player sprite sheet 2_5: -4549134776137478066
-      Player sprite sheet 2_6: 28767161425152477
-      Player sprite sheet 2_7: 6469658767817395397
-      Player sprite sheet 2_8: 8046930090051161889
-      Player sprite sheet 2_9: 8508023508091562806
+      Death 1: 3315676706361644364
+      Death 2: 4198526965624339288
+      Death 3: -1258845994
+      Death 4: 8143022820493098487
+      Death 5: 8642020582561589231
+      Death 6: 1256292780
+      Death 7: 7952100635976338073
+      Idle 1: 552772150493026744
+      Idle 2: -4906050470578595837
+      Jump 2: -8479791958730615374
+      Jump 3: 1130767902848007243
+      Land 1: -1105650745
+      Land 2 & Jump 1: 8834448354560513777
+      Land 3: -57964182385870278
+      Land 4: -5987673422773130016
+      Land 5: 9190330641994463543
+      Melee 1: -4741081077262407948
+      Melee 10: 917099564
+      Melee 2: -8903974296740874334
+      Melee 3: 533884865129846064
+      Melee 4: -4774420083510798942
+      Melee 5: 8587876467605778199
+      Melee 6: 4003125448221608452
+      Melee 7: 1756191075861045583
+      Melee 8: -5002318504443000857
+      Melee 9: 4022981246528081816
+      Ranged 1: -4947791519428454616
+      Ranged 2: 2652738514886098734
+      Walk 1: 823868373
+      Walk 10: 8508023508091562806
+      Walk 2: 9182891220480388673
+      Walk 3: 6671741380238926626
+      Walk 4: 1809792408423453458
+      Walk 5: -1799824712238791947
+      Walk 6: -4549134776137478066
+      Walk 7: 28767161425152477
+      Walk 8: 6469658767817395397
+      Walk 9: 8046930090051161889
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
