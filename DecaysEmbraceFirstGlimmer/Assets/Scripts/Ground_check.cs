@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ground_check : MonoBehaviour
 {
-    [SerializeField] private Transform groundCheck; //SerializeField allows private references to show in inspector
-    [SerializeField, Range(0.01f, 0.1f)] private float groundCheckRadius = .1f; 
+    private Transform groundCheck; //SerializeField allows private references to show in inspector
+    [SerializeField, Range(0.01f, 0.1f)] private float groundCheckRadius = .01f; 
     [SerializeField] private LayerMask isGroundLayer;
 
     // Start is called before the first frame update

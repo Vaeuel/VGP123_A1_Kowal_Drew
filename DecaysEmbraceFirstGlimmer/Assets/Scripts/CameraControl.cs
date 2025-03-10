@@ -15,6 +15,11 @@ public class Camera_movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!playerTrans)
+        {
+            playerTrans = GameObject.FindWithTag("Player").gameObject.GetComponent<Transform>();
+        }
+
         if (playerTrans == null)
             Debug.Log("Set player transform on camera script");
     }
