@@ -4,7 +4,7 @@ public class CollectibleItem : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"{gameObject.name} collided with {other.name}");
+        //Debug.Log($"{gameObject.name} collided with {other.name}");
         if (!other.CompareTag("Player")) return;
 
         switch (gameObject.name)

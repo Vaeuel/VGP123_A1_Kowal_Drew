@@ -50,7 +50,7 @@ public class Shoot : MonoBehaviour
         {
             spawnPoint.localPosition = new Vector2(-col.bounds.extents.x, 0.5f);  // Position for left side
             curProjectile = Instantiate(rng.projectilePrefab, spawnPoint.position, spawnPoint.rotation);
-            curProjectile.SetVelocity(initShotVelocity * -1);
+            curProjectile.SetVelocity(new Vector2(-initShotVelocity.x, initShotVelocity.y));
         }
     }
 
