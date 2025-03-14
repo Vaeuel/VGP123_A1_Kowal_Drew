@@ -59,7 +59,7 @@ public class Spawner : MonoBehaviour
             gameObject.name = "Wood";
             anim.Play("Wood");
             woodCount++;
-            Debug.Log("Wood count is " + woodCount);
+            //Debug.Log("Wood count is " + woodCount);
         }
 
         else if (stoneCount < maxStone && Random.value < 0.66f) //Might have trouble as .33 is less than .66. Though if less than .33 then should be wood.
@@ -67,7 +67,7 @@ public class Spawner : MonoBehaviour
             gameObject.name = "Stone";
             anim.Play("Stone");
             stoneCount++;
-            Debug.Log("Stone count is " + stoneCount);
+            //Debug.Log("Stone count is " + stoneCount);
         }
 
         else if (npcCount < maxNPCs)

@@ -73,7 +73,7 @@ public class PlayerControl : MonoBehaviour
         if (jump != null)
         {
             if (Input.GetButtonDown("Jump")) jump.Jumping();
-            if (Input.GetButtonUp("Jump")) jump.JumpRelease();
+            //if (Input.GetButtonUp("Jump")) jump.JumpRelease();
         }
 
         // sprite flipping

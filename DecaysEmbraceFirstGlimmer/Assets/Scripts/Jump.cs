@@ -14,11 +14,8 @@ public class Jump : MonoBehaviour
     private int jumpCount = 0;
     float calculatedJumpForce;
 
-    bool previousFall = false;
     bool isFalling = false;
-    bool wasGrounded = true;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -32,7 +29,6 @@ public class Jump : MonoBehaviour
         {
             ++jumpCount; // Increase jump count
             isFalling = false;
-            wasGrounded = false;
             anim.SetTrigger("Jump");
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0); // Reset vertical velocity for the double jump
             rb.AddForce(new Vector2(0, calculatedJumpForce), ForceMode2D.Impulse); //Adds force to RB 
@@ -41,10 +37,11 @@ public class Jump : MonoBehaviour
     public void JumpRelease()
     {
         anim.ResetTrigger("Jump");
+        anim.ResetTrigger("Landed");
 
-        if (rb.linearVelocity.y < -5) return;
+        if (rb.linearVelocity.y < -1f) return;
 
-        if (jumpCount < maxJumps) isFalling = true; //Prevents the falling script from running when not able
+        if (jumpCount <= maxJumps) isFalling = true; //Prevents the falling script from running when not able
     }
 
     // Update is called once per frame
@@ -52,7 +49,7 @@ public class Jump : MonoBehaviour
     {
 
 
-        if (rb.linearVelocity.y < 0f && wasGrounded) //walks off an edge the following happens
+        if (rb.linearVelocity.y < 0f) //walks off an edge the following happens
         {
             JumpRelease();
         }
@@ -61,18 +58,18 @@ public class Jump : MonoBehaviour
         {
             rb.AddForce(Vector2.down * jumpFallForce);
             anim.SetBool("IsFalling", isFalling);
-            previousFall = true;
-            isFalling = false;
         }
 
-        if (previousFall && pc.isGrounded)
-        { 
+        if (pc.isGrounded)
+        {
+            jumpCount = 0;
 
-            anim.SetBool("IsFalling", isFalling);  
-            anim.SetTrigger("Landed");
-            previousFall = false;
-            wasGrounded = pc.isGrounded;
-            jumpCount = 0; //Reset Jump count 
+            if (isFalling)
+            { 
+                isFalling = false;
+                anim.SetBool("IsFalling", isFalling);
+                anim.SetTrigger("Landed");
+            }
 
         }
     }
