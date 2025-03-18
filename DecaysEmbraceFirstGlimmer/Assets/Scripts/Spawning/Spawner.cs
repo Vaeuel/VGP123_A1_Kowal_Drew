@@ -31,11 +31,11 @@ public class Spawner : MonoBehaviour
     {
         anim = GetComponent<Animator>();
 
-        if (spawnType == SpawnType.Enemy) //SpawnEnemy();
+        if (spawnType == SpawnType.Enemy) SpawnEnemy();
         {
             // need to add movement ai type controls. the enemy script can have combat and etc. **Don't forget to gameObject.AddComponent<Enemy>(); or which ever script matchs**
-            Debug.Log("Please add enemy scripts to the Spawner script.");
-            return;
+            //Debug.Log("Spawner script: Please add enemy scripts to the Spawner script.");
+            
         }
 
         if (spawnType == SpawnType.Item) SpawnItem();
@@ -51,8 +51,32 @@ public class Spawner : MonoBehaviour
         bc2d.offset = new Vector2(0, (sr.bounds.size.y / 2));
     }
 
+    private void SpawnEnemy()
+    {
+        anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("anim/Enemies/Enemy");
+
+        if (Random.value < .5f)
+        {
+            gameObject.name = "Enemy 1";
+            gameObject.tag = "1";
+            anim.Play("Idle1");
+        }
+
+        else 
+        {
+            gameObject.name = "Enemy 2";
+            gameObject.tag = "2";
+            anim.Play("Idle2");
+        }
+
+        bc2d.isTrigger = false;
+        gameObject.AddComponent<Enemy>();
+    }
+
     private void SpawnItem()
     {
+        anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("anim/Collectibles/Collectible");
+
         //Randomly sets animations based on total counts
         if (woodCount < maxWood && Random.value < 0.33f)
         {
@@ -82,6 +106,8 @@ public class Spawner : MonoBehaviour
                 //Debug.Log("NPC count is " + npcCount + ", and UniqueNPC is " + uniqueNPC);
             }
         }
+
+        bc2d.isTrigger = true;
         gameObject.AddComponent<CollectibleItem>();
     }
 
@@ -107,11 +133,12 @@ public class Spawner : MonoBehaviour
     {
         sr = gameObject.AddComponent<SpriteRenderer>();
         sr.sortingLayerName = "Play Area";
+        sr.sortingOrder = 2;
         
         anim = gameObject.AddComponent<Animator>();
-        anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("anim/Collectibles/Collectible");
+        //anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("anim/Collectibles/Collectible"); //**Moved out to the spawnitem function so I could add a similar line for the enemies**
 
         bc2d = gameObject.AddComponent<BoxCollider2D>();
-        bc2d.isTrigger = true;
+        //bc2d.isTrigger = true; //Moved to the individual spawner types
     }
 }

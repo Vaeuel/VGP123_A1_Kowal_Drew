@@ -1,4 +1,3 @@
-using UnityEditor.Rendering;
 using UnityEngine;
 using static Spawner;
 
@@ -14,7 +13,6 @@ public class Ranged : MonoBehaviour
 
     [SerializeField] public GameObject projectilePrefab; //Projectile field in inspector doesn't accept prefab item being dragged in **maybe wrong field type?
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -46,7 +44,7 @@ public class Ranged : MonoBehaviour
            
         }
 
-        //Might need to add delay so the script can be set a frame after the prefab is added to this script
+        //Redundant if condition below **Keeping in case I have a use later**
 
         if (projectilePrefab != null && projectilePrefab.GetComponent<Projectile>() == null) //Checks if the projectile script is added to the projectile game object that was added to this script
         {

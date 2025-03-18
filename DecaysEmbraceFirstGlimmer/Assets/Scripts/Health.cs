@@ -1,28 +1,62 @@
+using System;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private int maxLives = 10;
-    private int _lives = 5;
+    [SerializeField] private int maxHealth = 10;
+    public int currentHealth;//Can be accessed for UI functionality
+    private bool isDead;
+    private string type;
 
-    public int lives //Provides a public variable that can be called like **Health.lives++;** which will run the below function with a value of 1
+    //public event Action HealthChange;//Creates scripting trigger events that can be subscribed to. **This one is for UI functionality**
+    public event Action <string> OnDeath;
+
+    private void Awake()
     {
-        get => _lives;
-        set
+        currentHealth = maxHealth;
+    }
+
+    public void ResetHealth()//Intended to aid multilife players. **in the player script add double conditions IE. if(health.isDead && player.1UP) adjust per case use**
+    {
+        currentHealth = maxHealth;
+        isDead = false; // Allow interaction again
+    }
+
+    public void TakeDamage(int damage, string dType)
+    {
+        if (isDead) return;//Prevents unintended use
+        currentHealth -= damage;//adjusts health accordingly
+        type = dType;
+
+        if (currentHealth <= 0)
         {
-            _lives = value; //Value is defined during the function call. 
-            if (_lives > maxLives) _lives = maxLives;
+            isDead = true;//Set bool to prevent unintentional use
+            OnDeath?.Invoke(type);//Triggers what ever script is subscribed to this action
         }
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
+
+/*Use the below chunks in which ever script is using this health system
+
+health.OnDeath += Death;//Subscribes on awake if placed 
+
+private void OnDestroy() //Unity Lifecycle method. **Includes Awake, Start, Update, OnDestroy**
+{
+    health.OnDeath -= Death; //Unsubscribe to prevent memory leaks
+}
+ 
+private void Death(string type)
+{
+    if (extraLives > 0)//Maybe linked to InventoryManager instead of local Variable?
+    {
+        extraLives--;
+        health.ResetHealth();
+    }
+    else
+    {
+        move.Dead();
+        anim.Play(type + "Death" + tg);//Add TG for enemy animation number
+        Destroy(gameObject, 2f); //Destoys attached object after a slight delay
+        //What ever other required logic exists for the particular health based destruction
+    }
+}*/

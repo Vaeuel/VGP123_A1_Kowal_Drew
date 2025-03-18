@@ -7,10 +7,11 @@ public class Shoot : MonoBehaviour
     BoxCollider2D col; //Will break if another collider type is used.**This is a temporary fix**
     Ranged rng;
     Animator anim;
-
+      
     [SerializeField] private Vector2 initShotVelocity = Vector2.zero;
 
     private Transform spawnPoint;
+    private string attackType = "Ranged";//Not Dynamic enough **Temporary fix**
 
     
     void Start()
@@ -20,7 +21,7 @@ public class Shoot : MonoBehaviour
         col = GetComponent<BoxCollider2D>();//Pt.2 of the above issue
         rng = GetComponent<Ranged>();
         anim = GetComponent<Animator>();
-
+        
         if (initShotVelocity == Vector2.zero)
         {
             initShotVelocity.x = 25.0f;
@@ -41,15 +42,19 @@ public class Shoot : MonoBehaviour
         {
             spawnPoint.localPosition = new Vector2(col.bounds.extents.x +3.5f, 2.5f);  // Position for right side
             curProjectile = Instantiate(rng.projectilePrefab, spawnPoint.position, spawnPoint.rotation).GetComponent<Projectile>();
+            curProjectile.name = rng.projectilePrefab.name;
             curProjectile.SetVelocity(initShotVelocity);
+            curProjectile.InitProj(attackType);
         }
 
         else
         {
             spawnPoint.localPosition = new Vector2(-col.bounds.extents.x - 4.5f, 2.5f);  // Position for left side
             curProjectile = Instantiate(rng.projectilePrefab, spawnPoint.position, spawnPoint.rotation).GetComponent<Projectile>();
+            curProjectile.name = rng.projectilePrefab.name;
             curProjectile.SetVelocity(new Vector2(-initShotVelocity.x, initShotVelocity.y));
             curProjectile.GetComponent<SpriteRenderer>().flipX = true;
+            curProjectile.InitProj(attackType);
         }
     }
 
@@ -60,6 +65,10 @@ public class Shoot : MonoBehaviour
         spawnObject.transform.localPosition = new Vector2();// Zeros the tansforms of the object
         spawnPoint = spawnObject.transform;//Passes this objects transforms out to the global spawnPoint value
     }
+
+ 
+        
+ 
 
     //void ColliderResize() //Didn't work. **I would need to resize the Collider on every animation**
     //{

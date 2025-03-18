@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Collectible
+  - 1
+  - 2
+  - Barrier
   layers:
   - Default
   - TransparentFX
