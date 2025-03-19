@@ -8,7 +8,7 @@ public class PlayerDetection : MonoBehaviour
     public Transform player;
     private IPlayerDetection dh;
     private Transform detectionZone;
-    private LayerMask isGroundLayer;
+    //private LayerMask isGroundLayer;
 
     private void Awake()
     {
@@ -56,7 +56,7 @@ public class PlayerDetection : MonoBehaviour
             cc2d.offset = new Vector2 (0 , 4.5f);
             cc2d.radius = detectionRadius;
             cc2d.isTrigger = true;
-            cc2d.excludeLayers = ~isGroundLayer; // Exclude Ground Layer ** ~ symbol indicates only this**
+            //cc2d.excludeLayers = ~isGroundLayer; // Exclude Ground Layer ** ~ symbol indicates only this**
 
         }
     }
