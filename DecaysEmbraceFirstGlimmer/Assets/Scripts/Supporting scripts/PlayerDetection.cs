@@ -44,7 +44,7 @@ public class PlayerDetection : MonoBehaviour
     {
         if (transform.Find("Detection") == null)
         {
-            //Debug.Log("No Detection Zone set. creating one assing pivot is bottom center");
+            Debug.Log("No Detection Zone set. creating one assing pivot is bottom center");
 
             GameObject newGameObject = new GameObject(); // creates new game object in scene and names it 
             newGameObject.transform.SetParent(transform); // childs the new game object under what ever uses this script

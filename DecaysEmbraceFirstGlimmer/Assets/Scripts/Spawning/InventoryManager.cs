@@ -5,11 +5,14 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance { get; private set; }
 
-    private Dictionary<string, int> resources = new Dictionary<string, int>
+    public Dictionary<string, int> resources = new Dictionary<string, int>();
+
+    private Dictionary<string, int> defaultResources = new Dictionary<string, int>
     {
         { "Wood", 0 },
         { "Stone", 0 },
-        { "NPC", 0 }
+        { "NPC", 0 },
+        { "extraLives", 3 }
     };
 
     private void Awake()
@@ -17,12 +20,19 @@ public class InventoryManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(this);
+            ResetInventory();
         }
 
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    public void ResetInventory()
+    {
+        resources = new Dictionary<string, int>(defaultResources);
     }
 
     public void AddResource(string resourceName, int amount)
