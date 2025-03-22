@@ -40,6 +40,21 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        Debug.Log("Respawn logic can go here");
+        //Add animations maybe before changing positions
+        GameObject player = GameObject.Find("Player");
+        Debug.Log("Tried to find player");
+
+        if (player != null)
+        {
+            Debug.Log("Player found for use in Respawn");
+            Destroy(player);
+            Debug.Log("Player Destroyed");
+        }
+        else
+        {
+            Debug.LogWarning("Player object not found Mother Fucker!");
+        }
         Debug.Log("Game over goes here");
 
         if (InventoryManager.Instance != null)
@@ -52,27 +67,19 @@ public class GameManager : MonoBehaviour
 
     public void Respawn()
     {
-        //Debug.Log("Respawn logic can go here");
-        ////Add animations maybe before changing positions
-        //GameObject player = GameObject.Find("Player");
-        //Debug.Log("Tried to find player");
+        if (_playerInstance != null)
+        {
+            PlayerControl pc = _playerInstance.GetComponent<PlayerControl>();
 
-        //if (player != null)
-        //{
-        //    Debug.Log("Player found for use in Respawn");
-        //    Destroy(player);
-        //    Debug.Log("Player Destroyed");
-        //}
-        //else
-        //{
-        //    Debug.LogWarning("Player object not found Mother Fucker!");
-        //}
-        _playerInstance = Instantiate(playerPreFab, currentCheckPoint.position, Quaternion.identity);
-        Debug.Log("playerInstance set equal to Instantiation");
-        _playerInstance.name = playerPreFab.name;
-        Debug.Log("Instance renamed");
-        _playerInstance.transform.position = currentCheckPoint.position; //Could be used to store check point positions.
-        Debug.Log("Tried to set playerInstance transforms");
+            _playerInstance.transform.position = currentCheckPoint.position;
+            Debug.Log("Player respawned at checkpoint.");
+
+            pc.PlayerReset();
+        }
+        else
+        {
+            Debug.LogWarning("No player instance found during respawn");
+        }
     }
 
     public void InitPlayer(Transform spawnLocation)

@@ -84,10 +84,10 @@ public class PlayerControl : MonoBehaviour
             {
                 if (Input.GetButtonDown("Jump")) jump.Jumping();
             }
-        }
-        
-        // sprite flipping
+
         if (hInput != 0) { sr.flipX = (hInput < 0); }
+
+        }        
 
         anim.SetFloat("hInput", Mathf.Abs(hInput));
         anim.SetBool("IsGrounded", isGrounded);
@@ -116,10 +116,12 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    private void PlayerReset()
+    public void PlayerReset()
     {
-        sr.enabled = true;
+        canMove = true;
         rb.simulated = true;
+        anim.Rebind();
+        anim.Update(0f);
     }
 
 
@@ -127,10 +129,8 @@ public class PlayerControl : MonoBehaviour
     private void Death(string type)
     {
         canMove = false;
+        rb.simulated = false;
         anim.Play("Death");//Add TG for enemy animation number
-        //rb.simulated = false;
-        //health.OnDeath -= Death; //Unsubscribe to prevent memory leaks
-        //Destroy(gameObject, 2.5f); //Destoys attached object after a slight delay **noBueno for player characters with respawn**
 
         StartCoroutine(DelayDeathLogic());
     }
@@ -138,17 +138,18 @@ public class PlayerControl : MonoBehaviour
     private IEnumerator DelayDeathLogic()
     {
         yield return new WaitForSeconds(2f);
-        //sr.enabled = false;
+
+        InventoryManager.Instance.resources["extraLives"]--;
         if (InventoryManager.Instance.resources["extraLives"] > 0)
         {
-            InventoryManager.Instance.resources["extraLives"]--;
-            canMove = true;
+
             health.ResetHealth();
             //PlayerReset();
             GameManager.Instance.Respawn();
         }
         else
         {
+            health.OnDeath -= Death; //Unsubscribe to prevent memory leaks
             Debug.Log("Decided the game is over!");
             GameManager.Instance.GameOver();
         }
