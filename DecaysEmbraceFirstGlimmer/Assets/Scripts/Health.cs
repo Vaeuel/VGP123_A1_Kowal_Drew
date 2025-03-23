@@ -10,15 +10,18 @@ public class Health : MonoBehaviour
 
     //public event Action HealthChange;//Creates scripting trigger events that can be subscribed to. **This one is for UI functionality**
     public event Action <string> OnDeath;
+    public event Action<int> HealthChanged;
 
     private void Awake()
     {
         currentHealth = maxHealth;
+        HealthChanged?.Invoke(currentHealth);
     }
 
     public void ResetHealth()//Intended to aid multilife players. **in the player script add double conditions IE. if(health.isDead && player.1UP) adjust per case use**
     {
         currentHealth = maxHealth;
+        HealthChanged?.Invoke(currentHealth);
         isDead = false; // Allow interaction again
     }
 
@@ -33,6 +36,7 @@ public class Health : MonoBehaviour
             isDead = true;//Set bool to prevent unintentional use
             OnDeath?.Invoke(type);//Triggers what ever script is subscribed to this action
         }
+        HealthChanged?.Invoke(currentHealth);
     }
 }
 

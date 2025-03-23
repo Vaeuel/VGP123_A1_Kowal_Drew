@@ -139,7 +139,7 @@ public class PlayerControl : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
 
-        InventoryManager.Instance.resources["extraLives"]--;
+        InventoryManager.Instance.AddResource("extraLives", -1);
         if (InventoryManager.Instance.resources["extraLives"] > 0)
         {
 

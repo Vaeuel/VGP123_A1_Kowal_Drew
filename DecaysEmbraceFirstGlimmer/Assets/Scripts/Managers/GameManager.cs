@@ -27,42 +27,41 @@ public class GameManager : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            string sceneName = SceneManager.GetActiveScene().name == "GameOver" ? "TitleScreen" : 
-                SceneManager.GetActiveScene().name == "TitleScreen" ? "Forest Area 1" : "GameOver";
-
-            SceneManager.LoadScene(sceneName);
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Escape))
+    //    {
+    //        //string sceneName = SceneManager.GetActiveScene().name == "GameOver" ? "TitleScreen" : 
+    //        //    SceneManager.GetActiveScene().name == "TitleScreen" ? "Forest Area 1" : "GameOver";
+            
+    //        SceneManager.LoadScene("TitleScreen");
+    //    }
+    //}
 
     public void GameOver()
     {
-        Debug.Log("Respawn logic can go here");
-        //Add animations maybe before changing positions
+        ResetGame();
+
+        SceneManager.LoadScene("GameOver");
+    }
+
+    public void ResetGame()
+    {
         GameObject player = GameObject.Find("Player");
-        Debug.Log("Tried to find player");
 
         if (player != null)
         {
-            Debug.Log("Player found for use in Respawn");
             Destroy(player);
-            Debug.Log("Player Destroyed");
         }
         else
         {
             Debug.LogWarning("Player object not found Mother Fucker!");
         }
-        Debug.Log("Game over goes here");
 
         if (InventoryManager.Instance != null)
         {
             InventoryManager.Instance.ResetInventory(); // Reset inventory before restarting
         }
-
-        SceneManager.LoadScene("GameOver");
     }
 
     public void Respawn()
@@ -72,7 +71,6 @@ public class GameManager : MonoBehaviour
             PlayerControl pc = _playerInstance.GetComponent<PlayerControl>();
 
             _playerInstance.transform.position = currentCheckPoint.position;
-            Debug.Log("Player respawned at checkpoint.");
 
             pc.PlayerReset();
         }
@@ -87,15 +85,11 @@ public class GameManager : MonoBehaviour
         currentCheckPoint = spawnLocation;
 
         _playerInstance = Instantiate(playerPreFab, currentCheckPoint.position, Quaternion.identity);
-        Debug.Log("playerInstance set equal to Instantiation");
         _playerInstance.name = playerPreFab.name;
-        Debug.Log("Instance renamed");
-
     }
 
     public void UpdateCheckpoint(Transform updatedCheckPoint)
     {
         currentCheckPoint = updatedCheckPoint;
-        Debug.Log($"Current checkpoint {currentCheckPoint} set equal to updatedCheckPoint {updatedCheckPoint}");
     }
 }

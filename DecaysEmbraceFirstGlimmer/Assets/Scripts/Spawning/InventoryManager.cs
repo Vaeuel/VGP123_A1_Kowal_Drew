@@ -1,8 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class InventoryManager : MonoBehaviour
 {
+    public event Action<string, int> InventoryChange;
+
     public static InventoryManager Instance { get; private set; }
 
     public Dictionary<string, int> resources = new Dictionary<string, int>();
@@ -41,7 +44,7 @@ public class InventoryManager : MonoBehaviour
         {
             resources[resourceName] += amount;
             Debug.Log($"{resourceName} count: {resources[resourceName]}"); //$ indicates string interpolation and allows imbedding Variables directly using {}.
-            UpdateUI(resourceName);
+            UpdateUI(resourceName, amount);
         }
 
         else
@@ -50,12 +53,12 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    private void UpdateUI(string resourceName)
+    private void UpdateUI(string resourceName, int amount)
     {
-        //Future UI Logic
+        InventoryChange?.Invoke(resourceName, amount);
     }
 
-    public void AreaConditional() //Will display when the player tries to leave the area
+    public void AreaConditional() //Will display when the player tries to access end game condition
     {
         foreach (var item in resources)
         {
