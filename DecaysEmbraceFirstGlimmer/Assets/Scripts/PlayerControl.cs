@@ -17,6 +17,7 @@ public class PlayerControl : MonoBehaviour
     Ranged rng;
     Melee mle;
     Health health;
+    AudioSource audioSource;
     
     //Movement variables
     [Range(.5f, 10)]
@@ -26,6 +27,9 @@ public class PlayerControl : MonoBehaviour
 
     public bool isGrounded = false;
     private bool canMove = true;
+
+    private AudioClip death;
+    private AudioClip gunShot;
     #endregion
 
 
@@ -34,6 +38,7 @@ public class PlayerControl : MonoBehaviour
         jump = GetComponent<Jump>() ?? gameObject.AddComponent<Jump>();
         rng = GetComponent<Ranged>() ?? gameObject.AddComponent<Ranged>();
         mle = GetComponent<Melee>() ?? gameObject.AddComponent<Melee>();
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     void Start()
@@ -43,6 +48,8 @@ public class PlayerControl : MonoBehaviour
         anim = GetComponent<Animator>();
         gc = GetComponent<Ground_check>();
         health = GetComponent<Health>();
+        gunShot = Resources.Load<AudioClip>("Audio/Audio_SFX/SingleStarterShot");
+        death = Resources.Load<AudioClip>("Audio/Audio_SFX/DeathGrunt");
         health.OnDeath += Death;//Subscribes on start if placed 
     }
 
@@ -66,6 +73,7 @@ public class PlayerControl : MonoBehaviour
 
                     if (Input.GetButtonDown("Fire2"))
                     {
+                        audioSource.PlayOneShot(gunShot);
                         rng.Fire();
                     }
                 }
@@ -124,12 +132,11 @@ public class PlayerControl : MonoBehaviour
         anim.Update(0f);
     }
 
-
-
     private void Death(string type)
     {
         canMove = false;
         rb.simulated = false;
+        audioSource.PlayOneShot(death);
         anim.Play("Death");//Add TG for enemy animation number
 
         StartCoroutine(DelayDeathLogic());

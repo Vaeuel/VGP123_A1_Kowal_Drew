@@ -7,11 +7,14 @@ public class Shoot : MonoBehaviour
     BoxCollider2D col; //Will break if another collider type is used.**This is a temporary fix**
     Ranged rng;
     Animator anim;
+    AudioSource audioSource;
       
     [SerializeField] private Vector2 initShotVelocity = Vector2.zero;
 
     private Transform spawnPoint;
     private string attackType = "Ranged";//Not Dynamic enough **Temporary fix**
+
+    private AudioClip gunShot;
 
     
     void Start()
@@ -21,7 +24,9 @@ public class Shoot : MonoBehaviour
         col = GetComponent<BoxCollider2D>();//Pt.2 of the above issue
         rng = GetComponent<Ranged>();
         anim = GetComponent<Animator>();
-        
+        audioSource = GetComponent<AudioSource>() ?? gameObject.AddComponent<AudioSource>();
+        gunShot = Resources.Load<AudioClip>("Audio/Audio_SFX/SingleStarterShot");
+
         if (initShotVelocity == Vector2.zero)
         {
             initShotVelocity.x = 25.0f;
@@ -35,6 +40,7 @@ public class Shoot : MonoBehaviour
     {
         //Spawn point being set tto Col.bounds.extent.x isn't working as expected. spawnPoint get set to the bound of teh first animation frame rather than flagged frame. **Needs fixing
         Projectile curProjectile;
+        //audioSource.PlayOneShot(gunShot);
         anim.ResetTrigger("Shooting");
         //ColliderResize();//Defunct.
 

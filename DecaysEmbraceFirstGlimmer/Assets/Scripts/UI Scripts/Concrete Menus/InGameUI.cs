@@ -31,8 +31,11 @@ public class InGameUI : BaseMenu
 
         if (healthText)
         {
+            Debug.Log("Health Text exists");
             health.HealthChanged += UpdateHealthUI;
+            Debug.Log("Subcribed to helath changes in Health script");
             UpdateHealthUI(health.currentHealth);
+            Debug.Log("Rand UpdateHealthUI");
         }
     }
 
@@ -50,7 +53,11 @@ public class InGameUI : BaseMenu
         }
     }
 
-    private void UpdateHealthUI(int value) => healthText.text = $"Health: {health.currentHealth}";
+    public void UpdateHealthUI(int value)
+        {
+            Debug.Log("Entered Health UI Update");
+            healthText.text = $"Health: {health.currentHealth}";
+        }
 
     private void UpdateInventoryUI(string resourceName, int amount)
     {

@@ -1,6 +1,8 @@
+using Mono.Cecil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 //[RequireComponent(typeof(CollectibleItem))]
 
@@ -9,6 +11,8 @@ public class Spawner : MonoBehaviour
     Animator anim;
     SpriteRenderer sr;
     BoxCollider2D bc2d;
+    AudioSource audioSource;
+    CollectibleItem ci;
     public enum SpawnType { Item, Enemy }
     public SpawnType spawnType;
 
@@ -76,7 +80,9 @@ public class Spawner : MonoBehaviour
     private void SpawnItem()
     {
         anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("anim/Collectibles/Collectible");
-
+        ci = gameObject.AddComponent<CollectibleItem>();
+        ci.OnDestroy += Destruction;
+        
         //Randomly sets animations based on total counts
         if (woodCount < maxWood && Random.value < 0.33f)
         {
@@ -108,7 +114,16 @@ public class Spawner : MonoBehaviour
         }
 
         bc2d.isTrigger = true;
-        gameObject.AddComponent<CollectibleItem>();
+        string spawnType = gameObject.name;
+        SetUpAudio(spawnType);
+    }
+
+    private void SetUpAudio(string spawnType)
+    {
+        audioSource.resource = Resources.Load<AudioClip>($"Audio/Audio_SFX/{spawnType}_PU");
+        audioSource.playOnAwake = true;
+        //AudioMixerGroup SFX = AudioMixerGroup("SFX");
+        //audioSource.outputAudioMixerGroup = 
     }
 
     private string GetUniqueNPC()
@@ -129,6 +144,14 @@ public class Spawner : MonoBehaviour
         return nameTry; //Returns string
     }
 
+    void Destruction()
+    {
+        sr.enabled = false;
+        ci.OnDestroy -= Destruction;
+        Destroy(gameObject, 2f);
+    }
+
+
     void InitSetup()
     {
         sr = gameObject.AddComponent<SpriteRenderer>();
@@ -140,5 +163,7 @@ public class Spawner : MonoBehaviour
 
         bc2d = gameObject.AddComponent<BoxCollider2D>();
         //bc2d.isTrigger = true; //Moved to the individual spawner types
+
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 }

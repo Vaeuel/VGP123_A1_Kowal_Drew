@@ -10,14 +10,22 @@ public class Enemy : MonoBehaviour, IPlayerDetection
     Rigidbody2D rb;
     Health health;
     DamageHandler dh;
-
+    AudioSource audioSource;
+    
     private string tg;
     private bool wasChasing = false;
+
+    private AudioClip death;
 
     private void Awake()
     {
         InitSetUp();
         health.OnDeath += Death;
+    }
+
+    private void Start()
+    {
+        DelayMemLoad();
     }
 
     private void OnDestroy()
@@ -57,24 +65,33 @@ public class Enemy : MonoBehaviour, IPlayerDetection
 private void Death(string type)
     {
         move.Dead();
+        audioSource.PlayOneShot(death);
         anim.Play(type + "Death" + tg);//Add TG for enemy animation number
+        Destroy(pd);
         Destroy(gameObject, 2.5f); //Destoys attached object after a slight delay
 
     }
 
     void InitSetUp()
     {
-        sr = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
         rb = gameObject.AddComponent<Rigidbody2D>();
-        rb.sleepMode = RigidbodySleepMode2D.NeverSleep;
-        rb.freezeRotation = true;
         move = gameObject.AddComponent<Movement>();
         pd = gameObject.AddComponent<PlayerDetection>();//May not be applied to the correct location
         health = gameObject.AddComponent<Health>();
         dh = gameObject.AddComponent<DamageHandler>();
-        tg = gameObject.tag;
+
         //Debug.Log("TG is set to " + tg);
+    }
+
+    void DelayMemLoad()
+    {
+        sr = GetComponent<SpriteRenderer>();
+        rb.sleepMode = RigidbodySleepMode2D.NeverSleep;
+        rb.freezeRotation = true;
+        anim = GetComponent<Animator>();
+        tg = gameObject.tag;
+        audioSource = gameObject.GetComponent<AudioSource>();
+        death = Resources.Load<AudioClip>("Audio/Audio_SFX/DeathGrunt");
     }
 
     public void OnPlayerEnterRange()
